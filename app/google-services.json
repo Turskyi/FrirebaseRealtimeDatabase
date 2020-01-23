@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "268780788008",
+    "firebase_url": "https://frirebaserealtimedatabase.firebaseio.com",
+    "project_id": "frirebaserealtimedatabase",
+    "storage_bucket": "frirebaserealtimedatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268780788008:android:6c0fbbade0ec8f446cd81d",
+        "android_client_info": {
+          "package_name": "ua.turskyi.frirebaserealtimedatabase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268780788008-cpcpm1ncsj30lkehpunasa94jdcaullg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ua.turskyi.frirebaserealtimedatabase",
+            "certificate_hash": "3036d938c1dc9492cd887a781ce1b0a3bc3e7655"
+          }
+        },
+        {
+          "client_id": "268780788008-fe1qhln2k6qq8ffolu3fvchak808bdmc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3wWsfLSuuTx-lCq3RwATkkLJkb_2RDPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268780788008-fe1qhln2k6qq8ffolu3fvchak808bdmc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

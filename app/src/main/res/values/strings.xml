@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FrirebaseRealtimeDatabase</string>
+    <string name="set_the_text">set the text</string>
+    <string name="send">Отправить</string>
+    <string name="error">Не удалось прочитать данные %1$s.</string>
+    <string name="name_and_age">%1$s : %2$s</string>
+</resources>
