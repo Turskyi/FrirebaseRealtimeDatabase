@@ -2,7 +2,6 @@ package ua.turskyi.frirebaserealtimedatabase
 
 import com.google.firebase.database.IgnoreExtraProperties
 
-
 @IgnoreExtraProperties
 class Cat {
     var catName: String? = null
