@@ -6,12 +6,13 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.firebase.FirebaseApp
 import com.google.firebase.database.*
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private var mEditText: EditText? = null
     private var mTextView: TextView? = null
-    var mDatabase: FirebaseDatabase? = null
+   lateinit var mDatabase: FirebaseDatabase
     var mMessageRef: DatabaseReference? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -22,22 +23,24 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onStart() {
         super.onStart()
-//         Создаем блок message в базе
-        mDatabase = FirebaseDatabase.getInstance()
-        mMessageRef = mDatabase!!.getReference("message")
+       val firebaseApp: FirebaseApp? = FirebaseApp.initializeApp(this)
+        if(firebaseApp != null){
+            //         Создаем блок message в базе
+            mDatabase = FirebaseDatabase.getInstance(firebaseApp)
+            mMessageRef = mDatabase.getReference("message")
 //        addNewCat("0" , "cat", 3)
-        mMessageRef!!.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (dataSnapshot.exists()){
-                    val value = dataSnapshot.getValue(String::class.java)!!
-                    mTextView!!.text = value
+            mMessageRef!!.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    if (dataSnapshot.exists()){
+                        val value = dataSnapshot.getValue(String::class.java)!!
+                        mTextView!!.text = value
+                    }
                 }
-            }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                mTextView!!.text = getString(R.string.error, databaseError.toException())
-            }
-        })
+                override fun onCancelled(databaseError: DatabaseError) {
+                    mTextView!!.text = getString(R.string.error, databaseError.toException())
+                }
+            })
 
 //        mMessageRef!!.child("cats").child("1").addValueEventListener(object : ValueEventListener {
 //            override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -65,6 +68,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 //                mTextView!!.text = getString(R.string.error, databaseError.toException())
 //            }
 //        })
+        }
     }
 
     fun onClick(view: View?) { // Создаем блок message в базе
